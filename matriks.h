@@ -18,4 +18,12 @@ Tanggal		: 25 September 2023
 #ifndef matriks_h
 #define matriks_h
 
+#include <stdio.h>
+#include <windows.h>
+#include <math.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+void displayMenu();
+
 #endif

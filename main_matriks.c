@@ -16,10 +16,11 @@ Tanggal		: 25 September 2023
 ===============================================*/
 
 #include "matriks.h"
-#include <stdio.h>
-#include <windows.h>
 
 int main()
 {
+
+    displayMenu();
+
     return 0;
 }

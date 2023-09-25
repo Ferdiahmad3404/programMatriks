@@ -16,3 +16,18 @@ Tanggal		: 25 September 2023
 ===============================================*/
 
 #include "matriks.h"
+
+void displayMenu()
+{
+    printf("==================================\n");
+    printf("           MENU MATRIKS           \n");
+    printf("==================================\n");
+    printf("1. Operasi Aritmatika Matriks    \n");
+    printf("2. Operasi Baris Elementer      \n");
+    printf("3. Matriks Invers                \n");
+    printf("4. Determinan Matriks            \n");
+    printf("5. Sistem Persamaan Linear       \n");
+    printf("0. Keluar                        \n");
+    printf("==================================\n");
+    printf("Pilih operasi (0-5): ");
+}
