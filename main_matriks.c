@@ -20,7 +20,20 @@ Tanggal		: 25 September 2023
 int main()
 {
 
-    displayMenu();
+    int pilihan;
+    while (1)
+    {
+        displayMenu();
+        scanf("%d", &pilihan);
+        switch (pilihan)
+        {
+        case 1:
+            system("cls");
+            displayMenuOperasiMatriks();
+            scanf("%d", &pilihan);
+            break;
+        }
+    }
 
     return 0;
 }

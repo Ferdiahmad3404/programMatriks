@@ -25,5 +25,6 @@ Tanggal		: 25 September 2023
 #include <stdbool.h>
 
 void displayMenu();
+void displayMenuOperasiMatriks();
 
 #endif
