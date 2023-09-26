@@ -20,17 +20,41 @@ Tanggal		: 25 September 2023
 int main()
 {
 
-    int pilihan;
-    while (1)
+    int pilihan = 0;
+    while (pilihan != 99)
     {
+        system("cls");
         displayMenu();
         scanf("%d", &pilihan);
         switch (pilihan)
         {
         case 1:
+            MenuOperasiMatriks();
+            break;
+        case 2:
             system("cls");
-            displayMenuOperasiMatriks();
-            scanf("%d", &pilihan);
+            printf("Operasi Baris Elementer\n");
+            break;
+        case 3:
+            system("cls");
+            printf("Matriks Invers\n");
+            break;
+        case 4:
+            system("cls");
+            printf("Determinan Matriks\n");
+            break;
+        case 5:
+            system("cls");
+            printf("Sistem Persamaan Linear\n");
+            break;
+        case 99:
+            system("cls");
+            printf("Terima kasih telah menggunakan program ini!\n");
+            exit(1);
+            break;
+        default:
+            system("cls");
+            printf("Pilihan tidak tersedia!\n");
             break;
         }
     }
