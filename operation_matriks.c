@@ -37,8 +37,7 @@ void MenuOperasiMatriks()
             PerkalianMatriks();
             break;
         case 4:
-            system("cls");
-            printf("Transpos Matriks\n");
+            TransposeMatriks();
             break;
         case 99:
             return;
@@ -46,6 +45,9 @@ void MenuOperasiMatriks()
         default:
             system("cls");
             printf("Pilihan tidak tersedia!\n");
+            printf("Silakan masukkan pilihan yang sesuai!\n");
+            printf("Tekan enter untuk melanjutkan...");
+            getch();
             break;
         }
     }
@@ -54,13 +56,39 @@ void MenuOperasiMatriks()
 // Fungsi untuk memeriksa ordo yang sesuai untuk penjumlahan dan pengurangan matriks
 bool isAdditionSubtractionValid(int rowsA, int colsA, int rowsB, int colsB)
 {
-    return (rowsA == rowsB) && (colsA == colsB);
+    if (rowsA > 0 && colsA > 0 && rowsB > 0 && colsB > 0)
+    {
+        return (rowsA == rowsB) && (colsA == colsB);
+    }
+    else
+    {
+        return false;
+    }
 }
 
 // Fungsi untuk memeriksa ordo yang sesuai untuk perkalian matriks
 bool isMultiplicationValid(int colsA, int rowsB)
 {
-    return (colsA == rowsB);
+    if (colsA > 0 && rowsB > 0)
+    {
+        return (colsA == rowsB);
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool isTransposeValid(int rows, int cols)
+{
+    if (rows > 0 && cols > 0)
+    {
+        return (rows == cols);
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void PenjumlahanMatriks()
@@ -238,7 +266,7 @@ void PerkalianMatriksMatriks()
             displayMatriks(rowsA, colsA, matriksA);
             printf("Matriks B:\n");
             displayMatriks(rowsB, colsB, matriksB);
-            hitungPerkalianMatriks(rowsA, colsA,  rowsB, colsB, matriksA, matriksB, matriksC);
+            hitungPerkalianMatriks(rowsA, colsA, rowsB, colsB, matriksA, matriksB, matriksC);
             printf("Hasil perkalian matriks A dan B:\n");
             displayMatriks(rowsA, colsB, matriksC);
             printf("Tekan enter untuk melanjutkan...");
@@ -265,6 +293,46 @@ void inputMatriks(int rows, int cols, float matriks[rows][cols])
         {
             printf("Masukkan elemen matriks %d, %d : ", i, j);
             scanf("%f", &matriks[i][j]);
+        }
+    }
+}
+
+void TransposeMatriks()
+{
+    /* Kamus Data */
+    int rowsA, colsA;
+    bool isValid = true;
+    /*Algoritma*/
+    while (isValid == true)
+    {
+        system("cls");
+        printf("\n============================================\n");
+        printf("          TRANSPOSE MATRIKS           \n");
+        printf("============================================\n");
+        printf("Masukkan ordo matriks A (m n): ");
+        scanf("%d %d", &rowsA, &colsA);
+        float matriksA[rowsA][colsA];
+        float matriksHasil[colsA][rowsA];
+        if (isTransposeValid(rowsA, colsA))
+        {
+            printf("Masukkan elemen matriks A:\n");
+            inputMatriks(rowsA, colsA, matriksA);
+            printf("Matriks A:\n");
+            displayMatriks(rowsA, colsA, matriksA);
+            hitungTransposeMatriks(rowsA, colsA, matriksA, matriksHasil);
+            printf("Hasil transpose matriks A:\n");
+            displayMatriks(colsA, rowsA, matriksHasil);
+            printf("Tekan enter untuk melanjutkan...");
+            getch();
+            return;
+        }
+        else
+        {
+            printf("Ordo matriks tidak sesuai!\n");
+            printf("Silakan masukkan ordo matriks yang sesuai!\n");
+            printf("Tekan enter untuk melanjutkan...");
+            getch();
+            continue;
         }
     }
 }
@@ -333,6 +401,18 @@ void hitungPerkalianMatriks(int rowsA, int colsA, int rowsB, int colsB, float ma
                 temp += matriksA[i][k] * matriksB[k][j];
             }
             matriksHasil[i][j] = temp;
+        }
+    }
+}
+
+void hitungTransposeMatriks(int rows, int cols, float matriks[rows][cols], float matriksHasil[cols][rows])
+{
+    int i, j;
+    for (i = 0; i < rows; i++)
+    {
+        for (j = 0; j < cols; j++)
+        {
+            matriksHasil[j][i] = matriks[i][j];
         }
     }
 }
