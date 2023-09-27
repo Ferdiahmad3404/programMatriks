@@ -23,7 +23,7 @@ void displayMenu()
     printf("           MENU MATRIKS           \n");
     printf("==================================\n");
     printf("1. Operasi Aritmatika Matriks    \n");
-    printf("2. Operasi Baris Elementer      \n");
+    printf("2. Matriks Eselon Baris	Tereduksi\n");
     printf("3. Matriks Invers                \n");
     printf("4. Determinan Matriks            \n");
     printf("5. Sistem Persamaan Linear       \n");

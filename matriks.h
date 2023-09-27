@@ -26,9 +26,9 @@ Tanggal		: 25 September 2023
 #include <conio.h>
 
 void displayMenu();
+// Operasi Aritmatika Matriks
 void displayMenuOperasiMatriks();
 void displayMenuOperasiPerkalianMatriks();
-
 void MenuOperasiMatriks();
 void PenjumlahanMatriks();
 void PenguranganMatriks();
@@ -36,7 +36,6 @@ void PerkalianMatriks();
 void PerkalianMatriksScalar();
 void PerkalianMatriksMatriks();
 void TransposeMatriks();
-
 bool isAdditionSubtractionValid(int rowsA, int colsA, int rowsB, int colsB);
 bool isMultiplicationValid(int colsA, int rowsB);
 bool isTransposeValid(int rows, int cols);
@@ -47,4 +46,8 @@ void hitungPenguranganMatriks(int rows, int cols, float matriksA[rows][cols], fl
 void hitungPerkalianMatriksxSkalar(int rows, int cols, float matriks[rows][cols], float skalar, float matriksHasil[rows][cols]);
 void hitungPerkalianMatriks(int rowsA, int colsA, int rowsB, int colsB, float matriksA[rowsA][colsA], float matriksB[rowsB][colsB], float matriksHasil[rowsA][colsB]);
 void hitungTransposeMatriks(int rows, int cols, float matriks[rows][cols], float matriksHasil[cols][rows]);
+
+// Matriks Eselon Baris
+void MenuEselonMatriks();
+void hitungEselonMatriks(int rows, int cols, float matriks[rows][cols]);
 #endif

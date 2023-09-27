@@ -284,18 +284,6 @@ void PerkalianMatriksMatriks()
     }
 }
 
-void inputMatriks(int rows, int cols, float matriks[rows][cols])
-{
-    int i, j;
-    for (i = 0; i < rows; i++)
-    {
-        for (j = 0; j < cols; j++)
-        {
-            printf("Masukkan elemen matriks %d, %d : ", i, j);
-            scanf("%f", &matriks[i][j]);
-        }
-    }
-}
 
 void TransposeMatriks()
 {
@@ -334,20 +322,6 @@ void TransposeMatriks()
             getch();
             continue;
         }
-    }
-}
-
-void displayMatriks(int rows, int cols, float matriks[rows][cols])
-{
-    int i, j;
-    for (i = 0; i < rows; i++)
-    {
-        printf("|");
-        for (j = 0; j < cols; j++)
-        {
-            printf(" %.2f ", matriks[i][j]);
-        }
-        printf("|\n");
     }
 }
 
@@ -414,5 +388,32 @@ void hitungTransposeMatriks(int rows, int cols, float matriks[rows][cols], float
         {
             matriksHasil[j][i] = matriks[i][j];
         }
+    }
+}
+
+void inputMatriks(int rows, int cols, float matriks[rows][cols])
+{
+    int i, j;
+    for (i = 0; i < rows; i++)
+    {
+        for (j = 0; j < cols; j++)
+        {
+            printf("Masukkan elemen matriks %d, %d : ", i+1, j+1);
+            scanf("%f", &matriks[i][j]);
+        }
+    }
+}
+
+void displayMatriks(int rows, int cols, float matriks[rows][cols])
+{
+    int i, j;
+    for (i = 0; i < rows; i++)
+    {
+        printf("|");
+        for (j = 0; j < cols; j++)
+        {
+            printf(" %.1f ", matriks[i][j]);
+        }
+        printf("|\n");
     }
 }

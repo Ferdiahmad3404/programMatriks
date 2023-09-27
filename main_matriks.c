@@ -32,8 +32,7 @@ int main()
             MenuOperasiMatriks();
             break;
         case 2:
-            system("cls");
-            printf("Operasi Baris Elementer\n");
+            MenuEselonMatriks();
             break;
         case 3:
             system("cls");
