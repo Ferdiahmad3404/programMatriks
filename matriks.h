@@ -8,7 +8,7 @@ Dibuat oleh :
             - Rafif Shabi Prasetyo  (221524055)
             - Zahran Anugerah Rizqullah (221524063)
 Kelompok	: 2
-Kelas		: 1B
+Kelas		: 2B
 Jurusan     : Teknik Komputer dan Informatika
 Prodi       : D4 Teknik Informatika
 Angkatan    : 2022/2023
@@ -41,6 +41,9 @@ bool isMultiplicationValid(int colsA, int rowsB);
 bool isTransposeValid(int rows, int cols);
 void inputMatriks(int rows, int cols, float matriks[rows][cols]);
 void displayMatriks(int rows, int cols, float matriks[rows][cols]);
+void inversMatriks();
+float determinanMatriks(int n, float matriks[n][n]);
+bool hitungInversMatriks(int n, float matriks[n][n], float invers[n][n]);
 void hitungPenjumlahanMatriks(int rows, int cols, float matriksA[rows][cols], float matriksB[rows][cols], float matriksHasil[rows][cols]);
 void hitungPenguranganMatriks(int rows, int cols, float matriksA[rows][cols], float matriksB[rows][cols], float matriksHasil[rows][cols]);
 void hitungPerkalianMatriksxSkalar(int rows, int cols, float matriks[rows][cols], float skalar, float matriksHasil[rows][cols]);

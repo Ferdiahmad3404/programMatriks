@@ -8,7 +8,7 @@ Dibuat oleh :
             - Rafif Shabi Prasetyo  (221524055)
             - Zahran Anugerah Rizqullah (221524063)
 Kelompok	: 2
-Kelas		: 1B
+Kelas		: 2B
 Jurusan     : Teknik Komputer dan Informatika
 Prodi       : D4 Teknik Informatika
 Angkatan    : 2022/2023
@@ -416,4 +416,127 @@ void displayMatriks(int rows, int cols, float matriks[rows][cols])
         }
         printf("|\n");
     }
+}
+
+void inversMatriks() 
+{
+    /* Kamus Data */
+    int n; // Ordo matriks (n x n)
+    bool isValid = true;
+
+    /* Algoritma */
+    while (isValid == true)
+    {
+        system("cls");
+        printf("\n============================================\n");
+        printf("          INVERS MATRIKS           \n");
+        printf("============================================\n");
+        printf("Masukkan ordo matriks (n x n): ");
+        scanf("%d", &n);
+
+        if (n > 0)
+        {
+            float matriksA[n][n], matriksHasil[n][n], inverse[n][n];
+            
+            // Input matriks A
+            printf("Masukkan elemen matriks A:\n");
+            inputMatriks(n, n, matriksA);
+
+            // Cek apakah determinan matriks A tidak nol
+            float det = determinanMatriks(n, matriksA);
+            if (det == 0)
+            {
+                printf("Matriks tidak memiliki invers karena determinan nol.\n");
+                printf("Tekan enter untuk melanjutkan...");
+                getch();
+                return;
+            }
+
+            // Hitung matriks invers
+            if (hitungInversMatriks(n, matriksA, inverse))
+            {
+                printf("\nMatriks A:\n");
+                displayMatriks(n, n, matriksA);
+
+                printf("\nMatriks Invers A:\n");
+                displayMatriks(n, n, inverse);
+
+                printf("\nTekan enter untuk melanjutkan...");
+                getch();
+                return;
+            }
+            else
+            {
+                printf("Terjadi kesalahan dalam menghitung invers matriks.\n");
+                printf("Tekan enter untuk melanjutkan...");
+                getch();
+                return;
+            }
+        }
+        else
+        {
+            printf("Ordo matriks tidak sesuai!\n");
+            printf("Silakan masukkan ordo matriks yang sesuai!\n");
+            printf("Tekan enter untuk melanjutkan...");
+            getch();
+            continue;
+        }
+    }
+}
+
+float determinanMatriks(int n, float matriks[n][n])
+{
+    if (n == 1)
+    {
+        return matriks[0][0];
+    }
+    else
+    {
+        float det = 0;
+        int i, j, k;
+        float subMatriks[n - 1][n - 1];
+        for (i = 0; i < n; i++)
+        {
+            for (j = 0; j < n - 1; j++)
+            {
+                for (k = 0; k < n - 1; k++)
+                {
+                    subMatriks[j][k] = matriks[j + 1][k < i ? k : k + 1];
+                }
+            }
+            det += (i % 2 == 0 ? 1 : -1) * matriks[0][i] * determinanMatriks(n - 1, subMatriks);
+        }
+        return det;
+    }
+}
+
+bool hitungInversMatriks(int n, float matriks[n][n], float invers[n][n])
+{
+    float det = determinanMatriks(n, matriks);
+
+    if (det == 0)
+    {
+        return false; // Matriks tidak memiliki invers karena determinan nol
+    }
+
+    int i, j, k, l;
+    float subMatriks[n - 1][n - 1];
+
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            for (k = 0; k < n - 1; k++)
+            {
+                for (l = 0; l < n - 1; l++)
+                {
+                    subMatriks[k][l] = matriks[(k < i) ? k : k + 1][(l < j) ? l : l + 1];
+                }
+            }
+
+            invers[j][i] = ((i + j) % 2 == 0 ? 1 : -1) * determinanMatriks(n - 1, subMatriks) / det;
+        }
+    }
+
+    return true;
 }

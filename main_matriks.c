@@ -35,8 +35,7 @@ int main()
             MenuEselonMatriks();
             break;
         case 3:
-            system("cls");
-            printf("Matriks Invers\n");
+            inversMatriks();
             break;
         case 4:
             system("cls");
