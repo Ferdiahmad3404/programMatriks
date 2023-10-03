@@ -11,7 +11,7 @@ Kelompok	: 2
 Kelas		: 1B
 Jurusan     : Teknik Komputer dan Informatika
 Prodi       : D4 Teknik Informatika
-Angkatan    : 2022/2023
+Angkatan    : 2022
 Tanggal		: 25 September 2023
 ===============================================*/
 
