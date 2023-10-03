@@ -35,14 +35,15 @@ int main()
             MenuEselonMatriks();
             break;
         case 3:
-            system("cls");
-            printf("Matriks Invers\n");
+            MenuInversMatriks();
             break;
         case 4:
-            system("cls");
-            printf("Determinan Matriks\n");
+            MenuDeterminanMatriks();
             break;
         case 5:
+            MenuAdjoinMatriks();
+            break;
+        case 6:
             system("cls");
             printf("Sistem Persamaan Linear\n");
             break;

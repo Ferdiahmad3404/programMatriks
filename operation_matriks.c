@@ -412,7 +412,7 @@ void displayMatriks(int rows, int cols, float matriks[rows][cols])
         printf("|");
         for (j = 0; j < cols; j++)
         {
-            printf(" %.1f ", matriks[i][j]);
+            printf("   %.2f   ", matriks[i][j]);
         }
         printf("|\n");
     }

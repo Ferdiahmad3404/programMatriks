@@ -50,4 +50,30 @@ void hitungTransposeMatriks(int rows, int cols, float matriks[rows][cols], float
 // Matriks Eselon Baris
 void MenuEselonMatriks();
 void hitungEselonMatriks(int rows, int cols, float matriks[rows][cols]);
+
+// Matriks Invers
+void MenuInversMatriks();
+void hitungInversMatriks2x2(float matriks[2][2], float matriksHasil[2][2]);
+void hitungInversMatriksAdjoin(int ordo, float matriks[ordo][ordo], float matriksHasil[ordo][ordo]);
+void hitungInversMatriksOBE(int ordo, float matriks[ordo][ordo]);
+void displayMenuInversMatriks2x2();
+void displayMenuInversMatriks3x3();
+
+// Determinan Matriks
+void displayMenuDeterminanMatriks2x2();
+void displayMenuDeterminanMatriks3x3();
+void MenuDeterminanMatriks();
+bool isUpperTriangular(int ordo, float matriks[ordo][ordo]);
+bool isLowerTriangular(int ordo, float matriks[ordo][ordo]);
+float hitungDeterminanMatriks2x2(float matriks[2][2]);
+float hitungDeterminanMatriksOBE(int ordo, float matriks[ordo][ordo]);
+float hitungDeterminanMatriksPerkalianElementer(int ordo, float matriks[ordo][ordo]);
+float hitungDeterminanMatriksKofaktor(int ordo, float matriks[ordo][ordo]);
+void potongMatriks(int ordo, float matriks[ordo][ordo], int excludeRow, int excludeCol, float submatrix[ordo - 1][ordo - 1]);
+
+// Adjoin Matriks
+void MenuAdjoinMatriks();
+void hitungAdjoinMatriks(int ordo, float matriks[ordo][ordo], float matriksHasil[ordo][ordo]);
+float hitungKofaktor(int ordo, float matriks[ordo][ordo], int row, int col);
+
 #endif

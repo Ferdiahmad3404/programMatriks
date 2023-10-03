@@ -26,7 +26,8 @@ void displayMenu()
     printf("2. Matriks Eselon Baris	Tereduksi\n");
     printf("3. Matriks Invers                \n");
     printf("4. Determinan Matriks            \n");
-    printf("5. Sistem Persamaan Linear       \n");
+    printf("5. Matriks Adjoin               \n");
+    printf("6. Sistem Persamaan Linear       \n");
     printf("99. Keluar                        \n");
     printf("==================================\n");
     printf("Pilih operasi : ");
@@ -56,4 +57,49 @@ void displayMenuOperasiPerkalianMatriks()
     printf("99. Kembali ke Menu Utama                   \n");
     printf("============================================\n");
     printf("Pilih operasi perkalian : ");
+}
+
+void displayMenuDeterminanMatriks2x2()
+{
+    printf("\n============================================\n");
+    printf("            Metode Penyelesaian          \n");
+    printf("==============================================\n");
+    printf("1. Metode Perkalian Silang                    \n");
+    printf("2. Metode OBE                                 \n");
+    printf("==============================================\n");
+    printf("Pilih metode penyelesaian: ");
+}
+
+void displayMenuDeterminanMatriks3x3()
+{
+    printf("\n============================================\n");
+    printf("            Metode Penyelesaian          \n");
+    printf("==============================================\n");
+    printf("1. Metode Penjumlahan hasil kali elementer bertanda\n");
+    printf("2. Metode OBE                                 \n");
+    printf("3. Metode Ekspansi Kofaktor                   \n");
+    printf("==============================================\n");
+    printf("Pilih metode penyelesaian: ");
+}
+
+void displayMenuInversMatriks2x2()
+{
+    printf("\n============================================\n");
+    printf("            Metode Penyelesaian          \n");
+    printf("==============================================\n");
+    printf("1. Metode Determinan                    \n");
+    printf("2. Metode OBE                                 \n");
+    printf("==============================================\n");
+    printf("Pilih metode penyelesaian: ");
+}
+
+void displayMenuInversMatriks3x3()
+{
+    printf("\n============================================\n");
+    printf("            Metode Penyelesaian          \n");
+    printf("==============================================\n");
+    printf("1. Metode Adjoin                    \n");
+    printf("2. Metode OBE                                 \n");
+    printf("==============================================\n");
+    printf("Pilih metode penyelesaian: ");
 }
