@@ -23,13 +23,13 @@ void displayMenu()
     printf("           MENU MATRIKS           \n");
     printf("==================================\n");
     printf("1. Operasi Aritmatika Matriks    \n");
-    printf("2. Operasi Baris Elementer      \n");
+    printf("2. Matriks Eselon Baris	Tereduksi\n");
     printf("3. Matriks Invers                \n");
     printf("4. Determinan Matriks            \n");
     printf("5. Sistem Persamaan Linear       \n");
-    printf("0. Keluar                        \n");
+    printf("99. Keluar                        \n");
     printf("==================================\n");
-    printf("Pilih operasi (0-5): ");
+    printf("Pilih operasi : ");
 }
 
 void displayMenuOperasiMatriks()
@@ -41,7 +41,19 @@ void displayMenuOperasiMatriks()
     printf("2. Pengurangan Matriks                     \n");
     printf("3. Perkalian Matriks                       \n");
     printf("4. Transpos Matriks                        \n");
-    printf("0. Kembali ke Menu Utama                   \n");
+    printf("99. Kembali ke Menu Utama                   \n");
     printf("============================================\n");
-    printf("Pilih operasi aritmatika (0-4): ");
+    printf("Pilih operasi aritmatika : ");
+}
+
+void displayMenuOperasiPerkalianMatriks()
+{
+    printf("\n============================================\n");
+    printf("          MENU OPERASI PERKALIAN MATRIKS    \n");
+    printf("============================================\n");
+    printf("1. Perkalian Matriks dengan Skalar          \n");
+    printf("2. Perkalian Matriks dengan Matriks         \n");
+    printf("99. Kembali ke Menu Utama                   \n");
+    printf("============================================\n");
+    printf("Pilih operasi perkalian : ");
 }
