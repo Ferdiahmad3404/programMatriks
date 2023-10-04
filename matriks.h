@@ -60,6 +60,7 @@ void displayMenuInversMatriks2x2();
 void displayMenuInversMatriks3x3();
 
 // Determinan Matriks
+void displayMenuDeterminanMatriks();
 void displayMenuDeterminanMatriks2x2();
 void displayMenuDeterminanMatriks3x3();
 void MenuDeterminanMatriks();
@@ -67,7 +68,7 @@ bool isUpperTriangular(int ordo, float matriks[ordo][ordo]);
 bool isLowerTriangular(int ordo, float matriks[ordo][ordo]);
 float hitungDeterminanMatriks2x2(float matriks[2][2]);
 float hitungDeterminanMatriksOBE(int ordo, float matriks[ordo][ordo]);
-float hitungDeterminanMatriksPerkalianElementer(int ordo, float matriks[ordo][ordo]);
+float sarrus(float matriks[3][3]);
 float hitungDeterminanMatriksKofaktor(int ordo, float matriks[ordo][ordo]);
 void potongMatriks(int ordo, float matriks[ordo][ordo], int excludeRow, int excludeCol, float submatrix[ordo - 1][ordo - 1]);
 

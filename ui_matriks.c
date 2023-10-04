@@ -75,9 +75,20 @@ void displayMenuDeterminanMatriks3x3()
     printf("\n============================================\n");
     printf("            Metode Penyelesaian          \n");
     printf("==============================================\n");
-    printf("1. Metode Penjumlahan hasil kali elementer bertanda\n");
+    printf("1. Metode Sarrus                               \n");
     printf("2. Metode OBE                                 \n");
     printf("3. Metode Ekspansi Kofaktor                   \n");
+    printf("==============================================\n");
+    printf("Pilih metode penyelesaian: ");
+}
+
+void displayMenuDeterminanMatriks()
+{
+    printf("\n============================================\n");
+    printf("            Metode Penyelesaian          \n");
+    printf("==============================================\n");
+    printf("1. Metode OBE                                 \n");
+    printf("2. Metode Ekspansi Kofaktor                   \n");
     printf("==============================================\n");
     printf("Pilih metode penyelesaian: ");
 }

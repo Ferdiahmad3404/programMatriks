@@ -396,13 +396,15 @@ void inputMatriks(int rows, int cols, float matriks[rows][cols])
     int i, j;
     for (i = 0; i < rows; i++)
     {
+        printf("Masukkan elemen matriks baris %d (dipisahkan oleh spasi): ", i + 1);
+
         for (j = 0; j < cols; j++)
         {
-            printf("Masukkan elemen matriks %d, %d : ", i+1, j+1);
             scanf("%f", &matriks[i][j]);
         }
     }
 }
+
 
 void displayMatriks(int rows, int cols, float matriks[rows][cols])
 {

@@ -45,7 +45,7 @@ void MenuDeterminanMatriks()
     case 2:
         valid = false;
         lagi = 'y';
-        while (valid == false && lagi == 'y')
+        while (valid == false && (lagi == 'y' || lagi == 'Y'))
         {
             displayMenuDeterminanMatriks2x2();
             scanf("%d", &pilihan);
@@ -80,17 +80,17 @@ void MenuDeterminanMatriks()
             }
         }
         break;
-    default:
+    case 3:
         valid = false;
         lagi = 'y';
-        while (valid == false && lagi == 'y')
+        while (valid == false && (lagi == 'y' || lagi == 'Y'))
         {
             displayMenuDeterminanMatriks3x3();
             scanf("%d", &pilihan);
             switch (pilihan)
             {
             case 1:
-                determinan = hitungDeterminanMatriksPerkalianElementer(ordo, matriks);
+                determinan = sarrus(matriks);
                 printf("\n**************************\n");
                 printf("Determinan matriks A adalah %.2f\n", determinan);
                 break;
@@ -115,11 +115,17 @@ void MenuDeterminanMatriks()
             }
             else
             {
-                printf("\n============================================\n");
+                 printf("\n============================================\n");
                 printf("Ingin menggunakan metode lain? (y/n) ");
                 lagi = getch();
             }
         }
+        break;
+    default:
+        determinan = hitungDeterminanMatriksOBE(ordo, matriks);
+        printf("\n**************************\n");
+        printf("Determinan matriks A adalah %.2f\n", determinan);
+        break;
     }
     printf("\n============================================\n");
     printf("Tekan enter untuk melanjutkan...");
@@ -220,82 +226,35 @@ bool isLowerTriangular(int ordo, float matriks[ordo][ordo])
     return true; // Semua elemen di atas diagonal utama adalah nol
 }
 
-float hitungDeterminanMatriksPerkalianElementer(int ordo, float matriks[ordo][ordo])
+float sarrus(float matriks[3][3])
 {
     /*Kamus Data*/
-    int i, j, counter, temp;
-    float determinan = 0;
-    float diagonal_satu = 0, diagonal_dua = 0;
+    int i, j;
+    float determinan = 0, diagonal_satu = 0, diagonal_dua = 0;
     // Matriks augmented
-    float augmentedMatrix[ordo][2 * ordo - 1];
+    float augmentedMatrix[3][5];
 
     /*Algoritma*/
     // Inisialisasi matriks augmented
-    for (int i = 0; i < ordo; i++)
+    for (i = 0; i < 3; i++)
     {
-        for (int j = 0; j < ordo; j++)
+        for (j = 0; j < 3; j++)
         {
             augmentedMatrix[i][j] = matriks[i][j];
             // Matriks identitas di samping matriks A
-            augmentedMatrix[i][j + ordo] = matriks[i][j];
+            augmentedMatrix[i][j + 3] = matriks[i][j];
         }
     }
 
     printf("\nMatriks Augmented :\n");
-    displayMatriks(ordo, 2 * ordo - 1, augmentedMatrix);
+    displayMatriks(3, 5, augmentedMatrix);
 
     // Mencari determinan
-    counter = 0;
-    printf("\ndeterminan = ");
-    printf("(");
-    for (i = 0; i < ordo; i++)
-    {
-        temp = 1;
-        printf("(");
-        for (j = 0; j < ordo; j++)
-        {
-            temp *= augmentedMatrix[0 + j][0 + j + counter];
-            printf("%.2f", augmentedMatrix[0 + j][0 + j + counter]);
-            if (j < ordo - 1)
-            {
-                printf(" * ");
-            }
-        }
-        printf(")");
-        if (i < ordo - 1)
-        {
-            printf("+");
-        }
-        counter++;
-        diagonal_satu += temp;
-    }
-    printf(") ");
-    printf("- ");
-    printf("(");
-    counter = 0;
-    for (i = 0; i < ordo; i++)
-    {
-        temp = 1;
-        printf("(");
-        for (j = 0; j < ordo; j++)
-        {
-            temp *= augmentedMatrix[0 + j][ordo - 1 - j + counter];
-            printf("%.2f", augmentedMatrix[0 + j][ordo - 1 - j + counter]);
-            if (j < ordo - 1)
-            {
-                printf(" * ");
-            }
-        }
-        printf(")");
-        if (i < ordo - 1)
-        {
-            printf("+");
-        }
-        counter++;
-        diagonal_dua += temp;
-    }
-    printf("\ndeterminan = %.2f - %.2f", diagonal_satu, diagonal_dua);
+    diagonal_satu = ((augmentedMatrix[0][0] * augmentedMatrix[1][1] * augmentedMatrix[2][2]) + (augmentedMatrix[0][1] * augmentedMatrix[1][2] * augmentedMatrix[2][3]) + (augmentedMatrix[0][2] * augmentedMatrix[1][3] * augmentedMatrix[2][4]));
+    diagonal_dua = ((augmentedMatrix[0][2] * augmentedMatrix[1][1] * augmentedMatrix[2][0]) + (augmentedMatrix[0][3] * augmentedMatrix[1][2] * augmentedMatrix[2][1]) + (augmentedMatrix[0][4] * augmentedMatrix[1][3] * augmentedMatrix[2][2]));
     determinan = diagonal_satu - diagonal_dua;
+    printf("\ndeterminan = (%.2f * %.2f * %.2f) + (%.2f * %.2f * %.2f) + (%.2f * %.2f * %.2f) - (%.2f * %.2f * %.2f) - (%.2f * %.2f * %.2f) - (%.2f * %.2f * %.2f)\n", augmentedMatrix[0][0], augmentedMatrix[1][1], augmentedMatrix[2][2], augmentedMatrix[0][1], augmentedMatrix[1][2], augmentedMatrix[2][3], augmentedMatrix[0][2], augmentedMatrix[1][3], augmentedMatrix[2][4], augmentedMatrix[0][2], augmentedMatrix[1][1], augmentedMatrix[2][0], augmentedMatrix[0][3], augmentedMatrix[1][2], augmentedMatrix[2][1], augmentedMatrix[0][4], augmentedMatrix[1][3], augmentedMatrix[2][2]);
+    printf("\ndeterminan = %.2f - %.2f\n", diagonal_satu, diagonal_dua);
     printf("\ndeterminan = %.2f\n", determinan);
     return determinan;
 }
@@ -315,7 +274,9 @@ float hitungDeterminanMatriksKofaktor(int ordo, float matriks[ordo][ordo])
         potongMatriks(ordo, matriks, 0, j, submatrix);
         float determinan_temp = hitungDeterminanMatriksKofaktor(ordo - 1, submatrix);
         float cofactor = matriks[0][j] * pow(-1, 1 + j) * determinan_temp;
-        determinan += cofactor;
+        if (cofactor == -0)
+            cofactor = 0; // Mengubah '-0' menjadi '0'
+		determinan += cofactor;
     }
     return determinan;
 }
