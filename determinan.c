@@ -144,41 +144,12 @@ float hitungDeterminanMatriks2x2(float matriks[2][2])
 float hitungDeterminanMatriksOBE(int ordo, float matriks[ordo][ordo])
 {
     /*Kamus Data*/
-    float skalar_temp;
+    float determinan = 1;
 
     /*Algoritma*/
     if (!isUpperTriangular(ordo, matriks) && !isLowerTriangular(ordo, matriks))
     {
-        for (int k = 0; k < ordo; k++)
-        {
-            printf("\n**************************\n");
-            for (int i = k + 1; i < ordo; i++)
-            {
-                skalar_temp = matriks[i][k] / matriks[k][k];
-                printf("Langkah %d: b%d' = b%d - (%.2f) * b%d'\n", k + 1, i + 1, i + 1, skalar_temp, k + 1);
-                for (int j = k; j < ordo; j++)
-                {
-                    matriks[i][j] = matriks[i][j] - (matriks[k][j] * skalar_temp);
-                }
-            }
-
-            // Menampilkan Setiap Langkah
-            if (k == ordo - 1)
-                printf("Bentuk Matriks Segitiga Atas Adalah : \n\n");
-            else
-                printf("\nBentuk Matriks Segitiga Atas setelah Langkah %d:\n\n", k + 1);
-            for (int a = 0; a < ordo; a++)
-            {
-                printf("| ");
-                for (int b = 0; b < ordo; b++)
-                {
-                    if (matriks[a][b] == -0)
-                        matriks[a][b] = 0; // Mengubah '-0' menjadi '0'
-                    printf("   %.2f   ", matriks[a][b]);
-                }
-                printf("|\n\n");
-            }
-        }
+        gaussElimination(ordo, ordo, matriks);
     }
     else
     {
@@ -188,7 +159,6 @@ float hitungDeterminanMatriksOBE(int ordo, float matriks[ordo][ordo])
             printf("Matriks sudah berbentuk segitiga bawah, maka tidak perlu OBE\n");
     }
     // Menghitung Determinan
-    float determinan = 1;
     for (int i = 0; i < ordo; i++)
     {
         determinan *= matriks[i][i];

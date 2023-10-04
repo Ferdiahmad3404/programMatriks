@@ -23,11 +23,12 @@ void displayMenu()
     printf("           MENU MATRIKS           \n");
     printf("==================================\n");
     printf("1. Operasi Aritmatika Matriks    \n");
-    printf("2. Matriks Eselon Baris	Tereduksi\n");
-    printf("3. Matriks Invers                \n");
-    printf("4. Determinan Matriks            \n");
-    printf("5. Matriks Adjoin               \n");
-    printf("6. Sistem Persamaan Linear       \n");
+    printf("2. Matriks Eselon Baris	         \n");
+    printf("3. Matriks Eselon Baris	Tereduksi\n");
+    printf("4. Matriks Invers                \n");
+    printf("5. Determinan Matriks            \n");
+    printf("6. Matriks Adjoin               \n");
+    printf("7. Sistem Persamaan Linear       \n");
     printf("99. Keluar                        \n");
     printf("==================================\n");
     printf("Pilih operasi : ");
@@ -111,6 +112,18 @@ void displayMenuInversMatriks3x3()
     printf("==============================================\n");
     printf("1. Metode Adjoin                    \n");
     printf("2. Metode OBE                                 \n");
+    printf("==============================================\n");
+    printf("Pilih metode penyelesaian: ");
+}
+
+void displayMenuSPL()
+{
+    printf("\n============================================\n");
+    printf("            Metode Penyelesaian          \n");
+    printf("==============================================\n");
+    printf("1. Metode OBE                                 \n");
+    printf("2. Metode Matriks Invers                      \n");
+    printf("3. Metode Cramer                              \n");
     printf("==============================================\n");
     printf("Pilih metode penyelesaian: ");
 }

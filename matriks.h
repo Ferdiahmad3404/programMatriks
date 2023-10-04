@@ -48,9 +48,10 @@ void hitungPerkalianMatriks(int rowsA, int colsA, int rowsB, int colsB, float ma
 void hitungTransposeMatriks(int rows, int cols, float matriks[rows][cols], float matriksHasil[cols][rows]);
 
 // Matriks Eselon Baris
-void MenuEselonMatriks();
-void hitungEselonMatriks(int rows, int cols, float matriks[rows][cols]);
-
+void MenuEselonBaris();
+void MenuEselonBarisTereduksi();
+void gaussJordan(int rows, int cols, float matriks[rows][cols]);
+void gaussElimination(int rows, int cols, float matriks[rows][cols]);
 // Matriks Invers
 void MenuInversMatriks();
 void hitungInversMatriks2x2(float matriks[2][2], float matriksHasil[2][2]);
@@ -80,6 +81,8 @@ float hitungKofaktor(int ordo, float matriks[ordo][ordo], int row, int col);
 // sistem persamaan linear
 void displayMenuSPL();
 void MenuSPL();
+void splMetodeInverse(int jml_persamaan, int jml_variabel, float matriks[jml_persamaan][jml_variabel + 1]);
+void splMetodeCramer(int jml_persamaan, int jml_variabel, float matriks[jml_persamaan][jml_variabel + 1]);
 void cekSolusiSPL(int jml_persamaan, int jml_variabel, float matriks[jml_persamaan][jml_variabel + 1]);
 bool cekSolusiBanyak(int jml_persamaan, int jml_variabel, float matriks[jml_persamaan][jml_variabel + 1]);
 bool cekTakPunyaSolusi(int jml_persamaan, int jml_variabel, float matriks[jml_persamaan][jml_variabel + 1]);

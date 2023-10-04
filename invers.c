@@ -174,7 +174,7 @@ void hitungInversMatriksOBE(int ordo, float matriks[ordo][ordo])
     displayMatriks(ordo, 2 * ordo, augmentedMatrix);
 
     // Terapkan OBE
-    hitungEselonMatriks(ordo, 2 * ordo, augmentedMatrix);
+    gaussJordan(ordo, 2 * ordo, augmentedMatrix);
 
     // Cetak matriks baris tereduksi
     printf("\nMatriks Baris Tereduksi:\n");

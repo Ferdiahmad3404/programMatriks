@@ -17,7 +17,7 @@ Tanggal		: 25 September 2023
 
 #include "matriks.h"
 
-void MenuEselonMatriks()
+void MenuEselonBarisTereduksi()
 {
     /*Kamus Data*/
     int rows, cols;
@@ -36,7 +36,7 @@ void MenuEselonMatriks()
     printf("Matriks A: \n");
     displayMatriks(rows, cols, matriks);
     printf("\n**************************\n");
-    hitungEselonMatriks(rows, cols, matriks);
+    gaussJordan(rows, cols, matriks);
     printf("\n**************************\n");
     printf("Matriks eselon baris tereduksi: \n");
     displayMatriks(rows, cols, matriks);
@@ -46,7 +46,55 @@ void MenuEselonMatriks()
     return;
 }
 
-void hitungEselonMatriks(int rows, int cols, float matriks[rows][cols])
+void MenuEselonBaris()
+{
+    /*Kamus Data*/
+    int rows, cols;
+    /*Algoritma*/
+    system("cls");
+    printf("\n============================================\n");
+    printf("          MATRIKS ESELON BARIS    \n");
+    printf("============================================\n");
+    printf("Masukkan jumlah baris matriks: ");
+    scanf("%d", &rows);
+    printf("Masukkan jumlah kolom matriks: ");
+    scanf("%d", &cols);
+    float matriks[rows][cols];
+    printf("Masukkan elemen matriks A: \n");
+    inputMatriks(rows, cols, matriks);
+    printf("Matriks A: \n");
+    displayMatriks(rows, cols, matriks);
+    printf("\n**************************\n");
+    gaussElimination(rows, cols, matriks);
+    printf("\n**************************\n");
+    printf("Matriks eselon baris: \n");
+    displayMatriks(rows, cols, matriks);
+    printf("\n============================================\n");
+    printf("Tekan enter untuk melanjutkan...");
+    getch();
+    return;
+}
+
+void gaussElimination(int rows, int cols, float matriks[rows][cols])
+{
+    for (int i = 0; i < rows - 1; i++)
+    {
+        for (int k = i + 1; k < rows; k++)
+        {
+            float factor = matriks[k][i] / matriks[i][i];
+            printf("Langkah %d: b%d' = b%d - (%.2f) * b%d'\n", i + 1, k + 1, k + 1, factor, i + 1);
+            for (int j = i; j < cols; j++)
+            {
+                matriks[k][j] -= factor * matriks[i][j];
+            }
+        }
+        // Menampilkan matriks pada setiap langkah
+        printf("Matriks setelah Langkah %d:\n", i + 1);
+        displayMatriks(rows, cols, matriks);
+    }
+}
+
+void gaussJordan(int rows, int cols, float matriks[rows][cols])
 {
     /*Kamus Data*/
     float skalar_temp;
@@ -82,16 +130,6 @@ void hitungEselonMatriks(int rows, int cols, float matriks[rows][cols])
 
         // Menampilkan Setiap Langkah
         printf("\nBentuk Matriks Baris Tereduksi setelah Langkah %d:\n\n", k + 1);
-        for (int a = 0; a < rows; a++)
-        {
-            printf("| ");
-            for (int b = 0; b < cols; b++)
-            {
-                if (matriks[a][b] == -0)
-                    matriks[a][b] = 0; // Mengubah '-0' menjadi '0'
-                printf("   %.2f   ", matriks[a][b]);
-            }
-            printf("|\n\n");
-        }
+        displayMatriks(rows, cols, matriks);
     }
 }
