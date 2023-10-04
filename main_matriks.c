@@ -32,19 +32,22 @@ int main()
             MenuOperasiMatriks();
             break;
         case 2:
-            MenuEselonMatriks();
+            MenuEselonBaris();
             break;
         case 3:
-            system("cls");
-            printf("Matriks Invers\n");
+            MenuEselonBarisTereduksi();
             break;
         case 4:
-            system("cls");
-            printf("Determinan Matriks\n");
+            MenuInversMatriks();
             break;
         case 5:
-            system("cls");
-            printf("Sistem Persamaan Linear\n");
+            MenuDeterminanMatriks();
+            break;
+        case 6:
+            MenuAdjoinMatriks();
+            break;
+        case 7:
+            MenuSPL();
             break;
         case 99:
             system("cls");
@@ -54,6 +57,8 @@ int main()
         default:
             system("cls");
             printf("Pilihan tidak tersedia!\n");
+            printf("Tekan enter untuk melanjutkan...");
+    		getch();
             break;
         }
     }
