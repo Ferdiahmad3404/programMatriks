@@ -115,7 +115,7 @@ void MenuDeterminanMatriks()
             }
             else
             {
-                 printf("\n============================================\n");
+                printf("\n============================================\n");
                 printf("Ingin menggunakan metode lain? (y/n) ");
                 lagi = getch();
             }
@@ -276,7 +276,7 @@ float hitungDeterminanMatriksKofaktor(int ordo, float matriks[ordo][ordo])
         float cofactor = matriks[0][j] * pow(-1, 1 + j) * determinan_temp;
         if (cofactor == -0)
             cofactor = 0; // Mengubah '-0' menjadi '0'
-		determinan += cofactor;
+        determinan += cofactor;
     }
     return determinan;
 }

@@ -77,4 +77,10 @@ void MenuAdjoinMatriks();
 void hitungAdjoinMatriks(int ordo, float matriks[ordo][ordo], float matriksHasil[ordo][ordo]);
 float hitungKofaktor(int ordo, float matriks[ordo][ordo], int row, int col);
 
+// sistem persamaan linear
+void displayMenuSPL();
+void MenuSPL();
+void cekSolusiSPL(int jml_persamaan, int jml_variabel, float matriks[jml_persamaan][jml_variabel + 1]);
+bool cekSolusiBanyak(int jml_persamaan, int jml_variabel, float matriks[jml_persamaan][jml_variabel + 1]);
+bool cekTakPunyaSolusi(int jml_persamaan, int jml_variabel, float matriks[jml_persamaan][jml_variabel + 1]);
 #endif

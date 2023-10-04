@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main_matriks.o ui_matriks.o operation_matriks.o row_echelon.o invers.o determinan.o spl.o adjoin.o "../../../../../Belajar\ Coding/Bahasa\ C/spl.o"
-LINKOBJ  = main_matriks.o ui_matriks.o operation_matriks.o row_echelon.o invers.o determinan.o spl.o adjoin.o "../../../../../Belajar Coding/Bahasa C/spl.o"
+OBJ      = main_matriks.o ui_matriks.o operation_matriks.o row_echelon.o invers.o determinan.o spl.o adjoin.o
+LINKOBJ  = main_matriks.o ui_matriks.o operation_matriks.o row_echelon.o invers.o determinan.o spl.o adjoin.o
 LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
@@ -47,6 +47,3 @@ spl.o: spl.c
 
 adjoin.o: adjoin.c
 	$(CC) -c adjoin.c -o adjoin.o $(CFLAGS)
-
-"../../../../../Belajar\ Coding/Bahasa\ C/spl.o": ../../../../../Belajar\ Coding/Bahasa\ C/spl.c
-	$(CC) -c "../../../../../Belajar Coding/Bahasa C/spl.c" -o "../../../../../Belajar Coding/Bahasa C/spl.o" $(CFLAGS)

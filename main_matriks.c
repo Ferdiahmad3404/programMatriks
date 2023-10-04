@@ -44,8 +44,7 @@ int main()
             MenuAdjoinMatriks();
             break;
         case 6:
-            system("cls");
-            printf("Sistem Persamaan Linear\n");
+            MenuSPL();
             break;
         case 99:
             system("cls");
