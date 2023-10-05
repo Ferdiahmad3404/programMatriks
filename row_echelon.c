@@ -92,8 +92,8 @@ void gaussElimination(int rows, int cols, float matriks[rows][cols]) {
             }
 
             if (swapRow == -1) {
-                printf("Error Matematika: Matriks singular atau ill-conditioned\n");
-                exit(0);
+                printf("Matriks singular atau ill-conditioned\n");
+    			return;
             }
 
             // Tukar baris i dan swapRow
@@ -123,8 +123,8 @@ void gaussElimination(int rows, int cols, float matriks[rows][cols]) {
     // Substitusi balik
     for (int i = n - 1; i >= 0; i--) {
         if (matriks[i][i] == 0.0) {
-            printf("Error Matematika: Matriks singular atau ill-conditioned\n");
-            exit(0);
+            printf("Matriks singular atau ill-conditioned\n");
+    		return;
         }
         x[i] = matriks[i][n];
         for (int j = i + 1; j < n; j++) {
