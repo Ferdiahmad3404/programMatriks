@@ -161,6 +161,10 @@ void splMetodeCramer(int jml_persamaan, int jml_variabel, float matriks[jml_pers
         displayMatriks(jml_persamaan, 1, matriksB);
 
         detA = sarrus(matriksA);
+        if (detA == 0){
+            printf("Sistem persamaan linear tidak memiliki solusi.\n");
+            return;
+        }
         printf("Determinan A: %.2f\n", detA);
 
         // Isi Matriks X1
@@ -178,6 +182,10 @@ void splMetodeCramer(int jml_persamaan, int jml_variabel, float matriks[jml_pers
         }
 
         det = sarrus(matriksX);
+        if (det == 0){
+            printf("Sistem persamaan linear tidak memiliki solusi.\n");
+            return;
+        }
         solusi1 = det / detA;
 
         // Isi Matriks X2
@@ -195,6 +203,10 @@ void splMetodeCramer(int jml_persamaan, int jml_variabel, float matriks[jml_pers
         }
 
         det = sarrus(matriksX);
+        if (det == 0){
+            printf("Sistem persamaan linear tidak memiliki solusi.\n");
+            return;
+        }
         solusi2 = det / detA;
 
         // Isi Matriks X3
@@ -212,6 +224,10 @@ void splMetodeCramer(int jml_persamaan, int jml_variabel, float matriks[jml_pers
         }
 
         det = sarrus(matriksX);
+        if (det == 0){
+            printf("Sistem persamaan linear tidak memiliki solusi.\n");
+            return;
+        }
         solusi3 = det / detA;
 
         printf("Solusi SPL: \n");
