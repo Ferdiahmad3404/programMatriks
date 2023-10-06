@@ -8,7 +8,7 @@ Dibuat oleh :
             - Rafif Shabi Prasetyo  (221524055)
             - Zahran Anugerah Rizqullah (221524063)
 Kelompok	: 2
-Kelas		: 1B
+Kelas		: 2B
 Jurusan     : Teknik Komputer dan Informatika
 Prodi       : D4 Teknik Informatika
 Angkatan    : 2022/2023
