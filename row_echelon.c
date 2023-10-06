@@ -75,7 +75,57 @@ void MenuEselonBaris()
     return;
 }
 
-void gaussElimination(int rows, int cols, float matriks[rows][cols]) {
+void gaussElimination(int rows, int cols, float matriks[rows][cols])
+{
+    int i, j, k, a, b;
+    float temp;
+    int counter = 1;
+
+    // Program Logic
+    for (k = 0; k < rows; k++)
+    {
+        if ((matriks[k][k]) != 1)
+        {
+            temp = matriks[k][k];
+            if (temp == 0)
+                continue; // Avoiding division by zero
+            for (j = 0; j < cols; j++)
+            {
+                matriks[k][j] = ((matriks[k][j]) / temp);
+            }
+
+            // Printing the formula
+            printf("Langkah %d: b%d' = b%d * (1 / %.2f)\n", counter, k + 1, k + 1, temp);
+            counter++;
+        }
+
+        for (i = k + 1; i < rows; i++)
+        {
+            float scalar = matriks[i][k];
+            printf("Langkah %d: b%d' = b%d - (%.2f) * b%d'\n",counter, i + 1, i + 1, scalar, k + 1);
+            counter++;
+            for (j = k; j < cols; j++)
+            {
+                matriks[i][j] = matriks[i][j] - (matriks[k][j] * scalar);
+            }
+        }
+
+        printf("\nBentuk Matriks Eselon Baris setelah Langkah %d:\n\n", counter-1);
+        for (int i = 0; i < rows; i++)
+        {
+            printf("|");
+            for (int j = 0; j < cols; j++)
+            {	
+                if (matriks[i][j] == -0)
+                    matriks[i][j] = 0;
+                printf("   %.2f   ", matriks[i][j]);
+            }
+            printf("|\n");
+        }
+    }
+}
+
+void ConvertSegitigaAtas(int rows, int cols, float matriks[rows][cols]) {
     int n = rows, counter = 1;  // Jumlah persamaan
     float *x = (float *)malloc(n * sizeof(float));
 
@@ -150,7 +200,7 @@ void gaussJordan(int rows, int cols, float matriks[rows][cols])
             if (skalar_temp == 0)
                 continue; // Menghindari pembagian oleh nol
             printf("\n**************************\n");
-            printf("Langkah %d: b%d' = b%d * 1 / %.2f\n", counter, k + 1, k + 1, skalar_temp);
+            printf("Langkah %d: b%d' = b%d * (1 / %.2f)\n", counter, k + 1, k + 1, skalar_temp);
             counter++;
             for (int j = 0; j < cols; j++)
             {
@@ -173,7 +223,7 @@ void gaussJordan(int rows, int cols, float matriks[rows][cols])
         }
 
         // Menampilkan Setiap Langkah
-        printf("\nBentuk Matriks Baris Tereduksi setelah Langkah %d:\n\n", k + 1);
+        printf("\nBentuk Matriks Eselon Baris Tereduksi setelah Langkah %d:\n\n", counter-1);
         for (int i = 0; i < rows; i++)
         {
             printf("|");

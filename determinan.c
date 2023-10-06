@@ -149,7 +149,7 @@ float hitungDeterminanMatriksOBE(int ordo, float matriks[ordo][ordo])
     /*Algoritma*/
     if (!isUpperTriangular(ordo, matriks) && !isLowerTriangular(ordo, matriks))
     {
-        gaussElimination(ordo, ordo, matriks);
+        ConvertSegitigaAtas(ordo, ordo, matriks);
     }
     else
     {

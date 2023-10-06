@@ -52,6 +52,7 @@ void MenuEselonBaris();
 void MenuEselonBarisTereduksi();
 void gaussJordan(int rows, int cols, float matriks[rows][cols]);
 void gaussElimination(int rows, int cols, float matriks[rows][cols]);
+void ConvertSegitigaAtas(int rows, int cols, float matriks[rows][cols]);
 // Matriks Invers
 void MenuInversMatriks();
 void hitungInversMatriks2x2(float matriks[2][2], float matriksHasil[2][2]);
