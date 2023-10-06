@@ -213,8 +213,11 @@ void gaussJordan(int rows, int cols, float matriks[rows][cols])
             if (i != k)
             {
                 skalar_temp = matriks[i][k];
-                printf("Langkah %d: b%d' = b%d - (%.2f) * b%d'\n",counter, i + 1, i + 1, skalar_temp, k + 1);
-                counter++;
+                if (skalar_temp != 0){
+                	printf("Langkah %d: b%d' = b%d - (%.2f) * b%d'\n",counter, i + 1, i + 1, skalar_temp, k + 1);
+                	counter++;
+				}
+                
                 for (int j = 0; j < cols; j++)
                 {
                     matriks[i][j] = matriks[i][j] - (matriks[k][j] * skalar_temp);
@@ -229,6 +232,7 @@ void gaussJordan(int rows, int cols, float matriks[rows][cols])
             printf("|");
             for (int j = 0; j < cols; j++)
             {	
+                //jika -0 maka ubah menjadi 0
                 if (matriks[i][j] == -0)
                     matriks[i][j] = 0;
                 printf("   %.2f   ", matriks[i][j]);
