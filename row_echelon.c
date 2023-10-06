@@ -150,7 +150,7 @@ void gaussJordan(int rows, int cols, float matriks[rows][cols])
             if (skalar_temp == 0)
                 continue; // Menghindari pembagian oleh nol
             printf("\n**************************\n");
-            printf("Langkah %d: b%d' = b%d / %.2f\n", counter, k + 1, k + 1, skalar_temp);
+            printf("Langkah %d: b%d' = b%d * 1 / %.2f\n", counter, k + 1, k + 1, skalar_temp);
             counter++;
             for (int j = 0; j < cols; j++)
             {
