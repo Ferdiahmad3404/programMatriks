@@ -174,6 +174,16 @@ void gaussJordan(int rows, int cols, float matriks[rows][cols])
 
         // Menampilkan Setiap Langkah
         printf("\nBentuk Matriks Baris Tereduksi setelah Langkah %d:\n\n", k + 1);
-        displayMatriks(rows, cols, matriks);
+        for (int i = 0; i < rows; i++)
+        {
+            printf("|");
+            for (int j = 0; j < cols; j++)
+            {	
+                if (matriks[i][j] == -0)
+                    matriks[i][j] = 0;
+                printf("   %.2f   ", matriks[i][j]);
+            }
+            printf("|\n");
+        }
     }
 }
