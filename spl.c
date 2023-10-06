@@ -164,7 +164,7 @@ void splMetodeCramer(int jml_persamaan, int jml_variabel, float matriks[jml_pers
         printf("Matriks B: \n");
         displayMatriks(jml_persamaan, 1, matriksB);
 
-        detA = hitungDeterminanMatriksOBE(jml_persamaan, matriksA);
+        detA = sarrus(matriksA);
         printf("Determinan A: %.2f\n", detA);
 
         // Isi Matriks X1
@@ -181,7 +181,7 @@ void splMetodeCramer(int jml_persamaan, int jml_variabel, float matriks[jml_pers
             matriksX[j][0] = matriksB[j][0];
         }
 
-        det = hitungDeterminanMatriksOBE(jml_persamaan, matriksX);
+        det = sarrus(matriksX);
         solusi1 = det / detA;
 
         // Isi Matriks X2
@@ -198,7 +198,7 @@ void splMetodeCramer(int jml_persamaan, int jml_variabel, float matriks[jml_pers
             matriksX[j][1] = matriksB[j][0];
         }
 
-        det = hitungDeterminanMatriksOBE(jml_persamaan, matriksX);
+        det = sarrus(matriksX);
         solusi2 = det / detA;
 
         // Isi Matriks X3
@@ -215,7 +215,7 @@ void splMetodeCramer(int jml_persamaan, int jml_variabel, float matriks[jml_pers
             matriksX[j][2] = matriksB[j][0];
         }
 
-        det = hitungDeterminanMatriksOBE(jml_persamaan, matriksX);
+        det = sarrus(matriksX);
         solusi3 = det / detA;
 
         printf("Solusi SPL: \n");
