@@ -121,11 +121,7 @@ void splMetodeInverse(int jml_persamaan, int jml_variabel, float matriks[jml_per
         hitungPerkalianMatriks(jml_persamaan, jml_variabel, jml_persamaan, 1, matriksA, matriksB, matriksX);
         printf("Matriks Hasil: \n");
         displayMatriks(jml_persamaan, 1, matriksX);
-        printf("Solusi SPL: \n");
-        for (int i = 0; i < jml_persamaan; i++)
-        {
-            printf("x%d = %.2f\n", i + 1, matriksX[i][0]);
-        }
+        cekSolusiSPL(jml_persamaan, jml_variabel, matriksX);
     }
 }
 
@@ -229,11 +225,11 @@ void cekSolusiSPL(int jml_persamaan, int jml_variabel, float matriks[jml_persama
 {
     if (cekSolusiBanyak(jml_persamaan, jml_variabel, matriks))
     {
-        printf("Solusi banyak\n");
+        printf("Sistem persamaan linear memiliki Solusi tak hingga banyak\n");
     }
     else if (cekTakPunyaSolusi(jml_persamaan, jml_variabel, matriks))
     {
-        printf("Tidak punya solusi\n");
+        printf("Sistem persamaan linear memiliki tidak memiliki solusi\n");
     }
     else
     {
